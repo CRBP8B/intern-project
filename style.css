@@ -18,6 +18,7 @@ ul {
   overflow: hidden;
   background-color: #333;
   float: inherit;
+  padding: 10px;
 }
 
 li {

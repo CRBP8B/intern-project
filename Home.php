@@ -5,12 +5,16 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
+<?php
+resource odbc_connect ( string $dsn , string $user , string $password [, int $cursor_type ] )
+?>
+
 <body>
 
   <!-- Nav Bar of website-->
-    <img src="Logo.png" alt="YRC_Logo" style="width:130px;height:66px;float:left;">
 
 <ul>
+  <img src="Logo.png" alt="YRC_Logo" style="height:inherit;float:left;">
   <li><a class="active" href="#home">Home</a></li>
   <li><a href="#contact">Contact</a></li>
   <li><a href="#about">About</a></li>

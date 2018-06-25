@@ -1,6 +1,6 @@
 
 img{
-  background-color: #333;
+  background-color: #0E4A86;
 }
 
 .Latest {
@@ -11,18 +11,26 @@ img{
   padding: 12px
 }
 
+h2{
+  font-family: "Arial";
+  font-weight: bold;
+}
+
 ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
+  background-color: #0E4A86;
   float: inherit;
   padding: 10px;
+  height: 50px;
 }
 
 li {
   float: left;
+  font-family: "Arial";
+  font-weight: bold;
 }
 
 li a {

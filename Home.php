@@ -5,14 +5,9 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
-<?php
-resource odbc_connect ( string $dsn , string $user , string $password [, int $cursor_type ] )
-?>
-
 <body>
 
   <!-- Nav Bar of website-->
-
 <ul>
   <img src="Logo.png" alt="YRC_Logo" style="height:inherit;float:left;">
   <li><a class="active" href="#home">Home</a></li>
@@ -38,7 +33,6 @@ resource odbc_connect ( string $dsn , string $user , string $password [, int $cu
 </h2>
 
 </div>
-
 
 <!-- Aditional Events Log -->
 <table>

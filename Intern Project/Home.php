@@ -10,16 +10,16 @@
   <!-- Nav Bar of website-->
 <ul>
   <img src="Logo.png" alt="YRC_Logo" style="height:inherit;float:left;">
-  <li><a class="active" href="#home">Home</a></li>
+  <li><a href="Home.php" href="#home">Home</a></li>
   <li><a href="#contact">Contact</a></li>
   <li><a href="#about">About</a></li>
 </ul>
 
 <!-- Input to form -->
-<form action="/action_page.php">
+<form action="Home.php" method="post">
   <br>
   Enter Pro#:<br>
-  <input type="text" name="firstname" value="Pro#">
+  <input type="text" name="pro" value="0000000">
   <input type="submit" value="Submit">
   <br>
 </form>
@@ -27,7 +27,7 @@
 <!-- Latest Status Box -->
 <div class="Latest">
   <h2>
-    Pro#: 123456789 &ensp;
+    Pro#: <?php echo $_POST["pro"]; ?> &ensp;
     Current Status: Intransit &ensp;
     Est. Delivery Date: 6/27/18
 </h2>

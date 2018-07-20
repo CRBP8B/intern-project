@@ -1,66 +1,66 @@
 <html>
 <title>YRCW Package Tracker</title>
 
-<?php
-$conn = mysqli_connect("localhost", "root", '', "connect");
- ?>
-
 <head>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- Nav Bar of website-->
+  <!-- =============== Nav Bar of website ==================== -->
 <ul>
   <img src="Logo.png" alt="YRC_Logo" style="height:inherit;float:left;">
-  <li><a href="Home.php" href="#home">Home</a></li>
+  <li><a href="index.php" href="#index">Home</a></li>
   <li><a href="#contact">Contact</a></li>
   <li><a href="#about">About</a></li>
 </ul>
 
-<!-- Input to form -->
-<form action="Home.php" method="post">
+<!-- ================ #Pro Number Entry Form =============== -->
+<form action="index.php" method="post">
   <br>
   Enter Pro#:<br>
   <input type="text" name="pro">
-  <input type="submit" value="Submit">
+  <input type="submit" value="Submit" required>
   <br>
 </form>
 
-<!-- Latest Status Box -->
+
+
+<?php
+/* ============== Connect using SQL Server Authentication.============== */
+$conn = new PDO("sqlsrv:Server=ywsqldw01v\dw;Database=Datain");
+$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+if (!$conn)
+{
+  echo "NO CONNECTION";
+}
+?>
+
+
+<!-- ==================== Latest Status Box ====================== -->
 <div class="Latest">
   <h2>
-    Pro#:
     <?php
     if (!$_POST){echo "N/A";}
     else {
-      echo $_POST["pro"];
     $PRO = $_POST["pro"];
+    Status($conn, $PRO);
   }
      ?>
-     &ensp;
-    Current Status:
-    <?php
-    if (!$_POST){echo "N/A";}
-    else {
-      $query = "SELECT IsignitionOn FROM Vzcon WHERE Id = $PRO";
-      $result = mysqli_query($conn, $query);
-      while ($row = $result->fetch_assoc()) {
-        echo $row['IsignitionOn']."<br>";
-    }
-}
 
-    ?>
 
-     &ensp;
-    Est. Delivery Date: 6/27/18
 </h2>
 
 </div>
 
-<!-- Aditional Events Log -->
+
+<!-- ==================== Aditional Events Log ==================== -->
+
+
 <?php
+
+// ======= Concetion to Verizon Connect Local Host Database ============
+$conn = mysqli_connect("localhost", "root", '', "connect");
 
 $query = "SELECT Id, LastLocationAddress FROM Vzcon WHERE Id = $PRO"; //You don't need a ; like you do in SQL
 $result = mysqli_query($conn, $query);
@@ -74,6 +74,7 @@ echo "<tr><td>" . $row['Id'] . "</td><td>" . $row['LastLocationAddress'] . "</td
 echo "</table>"; //Close the table in HTML
 ?>
 
+<!-- ==================== Split of YRC TractorID ==================== -->
 <?php
 //Test to pull YRCTractorid and split it into 2 variables to make it queryable
 if (!$_POST){echo "N/A";}
@@ -99,28 +100,25 @@ else {
 mysqli_close($conn);
 ?>
 
-<?php
-$serverName = "sqlsrv:Server=ywsqldw01v\dw;Database=Dataln";
-$uid = "SVC.Intern_Project";
-$pwd = "Df@#sd$&rty!";
-$databaseName = "Dataln";
 
-/* Connect using SQL Server Authentication. */
+
+<?php
+
+/* Connect using SQL Server Authentication.
 $conn = new PDO("sqlsrv:Server=ywsqldw01v\dw;Database=Datain");
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-//$conn = odbc_connect('Test', $uid ,$pwd);
-if (!$conn)
-{
-  echo "NO CONNECTION";
-}
-else {
-  get($conn);
-}
+if (!$conn){echo "NO CONNECTION";}
+*/
 
-function get($conn) {
-  $sql = 'SELECT Create_TS FROM [CSM].[Customer_Role_Type]';
+// ============= Current Status Bar Function ==============
+function Status($conn,$PRO) {
+  $sql = "SELECT TOP 1000 Shipment_KEY, Shipment_Due_DT FROM [DataIn].[OPS].[Shipment] WHERE Pro_NB = '$PRO'";
   foreach ($conn->query($sql) as $row) {
-    print $row['Create_TS'] . "\t";
+    print "PRO#:   " . "$PRO";
+    echo str_repeat("&nbsp;", 5);
+    print  "Key: " . $row['Shipment_KEY'] . "\t";
+    echo str_repeat("&nbsp;", 5);
+    print "Est.Delivery Date: " . $row['Shipment_Due_DT'] . "\t";
   }
 }
  ?>

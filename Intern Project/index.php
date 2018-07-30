@@ -10,7 +10,7 @@
   <!-- =============== Nav Bar of website ==================== -->
 <ul>
   <img src="Logo.png" alt="YRC_Logo" style="height:inherit;float:left;">
-  <li><a href="index.php" >Home</a></li>
+  <li><a href="index.php">Home</a></li>
   <li><a href="contact_form.html">Contact</a></li>
   <li><a href="#about">About</a></li>
 </ul>

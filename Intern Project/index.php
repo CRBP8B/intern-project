@@ -14,13 +14,13 @@ $conn = mysqli_connect("localhost", "root", '', "connect");
   <!-- Nav Bar of website-->
 <ul>
   <img src="Logo.png" alt="YRC_Logo" style="height:inherit;float:left;">
-  <li><a href="Home.php" href="#home">Home</a></li>
+  <li><a href="index.php" href="#home">Home</a></li>
   <li><a href="#contact">Contact</a></li>
   <li><a href="#about">About</a></li>
 </ul>
 
 <!-- Input to form -->
-<form action="Home.php" method="post">
+<form action="index.php" method="post">
   <br>
   Enter Pro#:<br>
   <input type="text" name="pro">
@@ -65,7 +65,7 @@ $conn = mysqli_connect("localhost", "root", '', "connect");
 $query = "SELECT Id, LastLocationAddress FROM Vzcon WHERE Id = $PRO"; //You don't need a ; like you do in SQL
 $result = mysqli_query($conn, $query);
 
-echo "<table> <tr> <th>ID</th> <th>Last Locatoin</th> </tr>"; // start a table tag in the HTML
+echo "<table> <tr> <th>ID</th> <th>Last Location</th> </tr>"; // start a table tag in the HTML
 
 while($row = $result->fetch_assoc()){   //Creates a loop to loop through results
 echo "<tr><td>" . $row['Id'] . "</td><td>" . $row['LastLocationAddress'] . "</td></tr>";  //$row['index'] the index here is a field name

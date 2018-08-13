@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+      <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body style="background:url('bg.png') repeat">
+
+    <!-- =============== Nav Bar of website ==================== -->
+  <ul>
+    <img src="Logo.png" alt="YRC_Logo" style="height:inherit;float:left;">
+    <li><a href="index.php">Home</a></li>
+    <li><a href="contact_form.html">Contact</a></li>
+    <li><a href="About.html">About</a></li>
+  </ul>
+
+  <div class="Box">
+    <h2>
+      About this Project:
+    </h2>
+    <p>
+      Description:
+      This is a PHP and SQL Web Application created by the YRCW 2018 Summer IT Interns. The main purpose of the application was to create a way for customers to find the current status and location of their shipment. We expanded on that purpose and made it our goal to give the user a list of major milestones their shipment has reached rather than only giving them the current status and location.
+      <br><br>
+      Technologies:
+      To accomplish this the technologies we used were Github, Zenhub, Google Drive, and Slack for collaboration purposes. Atom, DNA, XAMPP, the Data Lake, and a sample of the Verizon connect (formerly Telogis) data were used to create the application.
+      Github was used as version control for the web application. Zenhub, an extension of GitHub, was our agile process manager.
+      Slack was used for communication and Google Drive was used for collaboration outside of coding. Presentations were created and stored using Google Drive, and rough draft images were stored on the drive.
+      DnA (Data and Apps), is a development tool setup to allow for the searching of the database to find specific tables and column names. This was used in the search to find the connections in the database need for the completion of the project.
+      XAMPP is an application that allows the user to run an Apache server on their devices. Running the Apache server allows for users to run php code under a local environment. Xampp also has a plugin for MySql and PHPMyadmin which allows for the creation of a MySql database that the user can then access through the use of PHP running on the local Apache server.
+    </p>
+    </div>
+    <div class="Box">
+      <p>
+      <br>
+      The Data:
+      Verizon Connect, also referred to as Telogis, is a fleet tracking software that allows for an almost real real time tracking and monitoring of YRC Freight and its subsidiaries tractors. It tracks every stat about the tractors that you could want it to track, such as current speed, location, how often tractors have gone idle, ect. The API for YRCW is currently under development so we only had access to a dump of the data in an excel sheet that was then turned into a MySQL database running through XAMPP.
+      The Data Lake is our primary source of data used for the completion of this project. The Data Lake is a replication of data from other sources in the company such as M204, pulled together into a single database. The Data Lake contains all of the data needed to make the connections to the Telogis data to create a better package tracking experience. (Minus: Tractor to Trailer as of right now.)
+
+      Data Diagram
+
+      <br><br>
+      Extra:
+      A side project was created to showcase the different possibilities. It was a web application prototype that was solely UI, created using the Axure prototyping tool. The prototype displays many features that are only ideas because they may require technologies or business practices that we currently do not have.
+      The first web page a user reaches is the Login/Enter a PRO page. The Login is for users who are part of a company that has purchased or requested a login to view all of their shipments. This account will be per company rather than per member so multiple people may have access to the same account for their company. If they do not have an account they may click to enter multiple PROs, or similar to the PHP Web application they may enter a single PRO.
+      Ordinary users only have the option to manually enter a PRO or multiple PROs. They are directed to the PROview to view the entered shipment. When viewing a shipment, a user is shown the current status, shipping history, current location, estimated delivery date, and a map displaying the shipment’s location. There might be movement on the map if the shipment is currently in transit.
+      A user may change the destination of a shipment they are viewing or view a more detailed map for that shipment. This page displays the same information as the previous screen with the addition of the Pick Up Date, and the speed at which their shipment is moving if it is in transit.
+      Registered users have additional features. After successfully logging in, they are redirected to their Dashboard. On the Dashboard is a list of all of their shipments, their status, and Estimated Delivery date. They may search or click a shipment to be redirected to the PROview.
+      Or they can go to Map View from their Shipments Dashboard and view a map displaying all of their current shipments in real time. The page displays how many total shipments they have and of those how many are on, ahead, or behind schedule.
+      For more statistics there is a Statistics feature that details YRC’s track record with them such as how timely shipments have been delivered, total hours driven, miles traveled, and states visited.
+      Automated Rating
+
+      <br>
+      Timeline:
+
+    </p>
+  </div>
+
+  </body>
+</html>

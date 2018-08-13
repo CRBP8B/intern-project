@@ -131,12 +131,14 @@ function Status($conn,$PRO) {
 }
 
 /*
+This is the query that will return all of the pro numbers that will work With both Our tracker and the YRC Frieght Tracker
+
 SELECT Pro_NB
         FROM [DataIn].[OPS].[Operations_Shipment], [DataIn].[OPS].[Customer_Trap], [DataIn].[OPS].[Shipment_Customer]
         WHERE [DataIn].[OPS].[Operations_Shipment].Bus_ID = [DataIn].[OPS].[Customer_Trap].Bus_ID
         AND [DataIn].[OPS].[Operations_Shipment].Current_terminal_ID = [DataIn].[OPS].[Customer_Trap].Current_Terminal_ID
         AND [DataIn].[OPS].[Customer_Trap].Consignee_Address = [DataIn].[OPS].[Shipment_Customer].Street_Address_TX
-        Order By Pro_NB desc";
+        Group By Pro_NB
 */
 
 function DeliveryAddress($conn,$PRO){

@@ -130,6 +130,15 @@ function Status($conn,$PRO) {
   }
 }
 
+/*
+SELECT Pro_NB
+        FROM [DataIn].[OPS].[Operations_Shipment], [DataIn].[OPS].[Customer_Trap], [DataIn].[OPS].[Shipment_Customer]
+        WHERE [DataIn].[OPS].[Operations_Shipment].Bus_ID = [DataIn].[OPS].[Customer_Trap].Bus_ID
+        AND [DataIn].[OPS].[Operations_Shipment].Current_terminal_ID = [DataIn].[OPS].[Customer_Trap].Current_Terminal_ID
+        AND [DataIn].[OPS].[Customer_Trap].Consignee_Address = [DataIn].[OPS].[Shipment_Customer].Street_Address_TX
+        Order By Pro_NB desc";
+*/
+
 function DeliveryAddress($conn,$PRO){
   $sql = "SELECT TOP 1 Consignee_Address, City_NM, State_Province_Abbreviation_CD
           FROM [DataIn].[OPS].[Operations_Shipment], [DataIn].[OPS].[Customer_Trap], [DataIn].[OPS].[Shipment_Customer]
